@@ -1,0 +1,16 @@
+{
+  "name": "frontegg-mcp-sample",
+  "version": "1.0.0",
+  "description": "This repository demonstrates how to set up and use the Frontegg Management Control Panel (MCP) integration with Cursor AI. It implements the [Frontegg MCP Server](https://github.com/frontegg/frontegg-mcp-server) which allows you to interact with Frontegg's API directly from your IDE.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@frontegg/frontegg-mcp-server": "^1.0.1"
+  },
+  "devDependencies": {}
+}
