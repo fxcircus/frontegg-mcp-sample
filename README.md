@@ -1,10 +1,17 @@
-# Frontegg MCP Integration Setup
+# Frontegg MCP Integration Sample
 
-This repository demonstrates how to set up and use the Frontegg Management Control Panel (MCP) integration with Cursor AI. It implements the [Frontegg MCP Server](https://github.com/frontegg/frontegg-mcp-server) which allows you to interact with Frontegg's API directly from your IDE.
+[![Node.js Version](https://img.shields.io/node/v/@frontegg/frontegg-mcp-server)](https://nodejs.org/)
+[![npm version](https://img.shields.io/npm/v/@frontegg/frontegg-mcp-server.svg)](https://www.npmjs.com/package/@frontegg/frontegg-mcp-server)
+
+
+A demo showing how to wire up the [Frontegg MCP Server](https://github.com/frontegg/frontegg-mcp-server) with CursorAI for managing your CIAM using prompts.
 
 ## Table of Contents
-- [Setup Instructions](#setup-instructions)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
 - [Enabling MCP in Cursor](#enabling-mcp-in-cursor)
+- [Usage](#usage)
 - [Features](#features)
   - [Available Tools](#available-tools)
     - [Roles Management](#roles-management)
@@ -16,24 +23,34 @@ This repository demonstrates how to set up and use the Frontegg Management Contr
     - [Vendor Integration](#vendor-integration)
 - [Troubleshooting](#troubleshooting)
 
-## Setup Instructions
+## Prerequisites
 
-1. Initialize a new Node.js project:
+- Node.js ≥14.x
+- npm (or yarn)
+- A Frontegg account with a Client ID & API Key
+- Cursor IDE installed
+
+## Installation
+
+1. Clone the repo:
    ```bash
-   npm init -y
+   git clone https://github.com/fxcircus/frontegg-mcp-sample.git
+   cd frontegg-mcp-sample
    ```
 
-2. Install the Frontegg MCP server:
+2. Install dependencies:
    ```bash
-   npm i @frontegg/frontegg-mcp-server
+   npm install
    ```
 
-3. Create the `.cursor` directory and MCP configuration file (if they don't exist already):
+## Configuration
+
+1. Create the `.cursor` directory and MCP configuration file (if they don't exist already):
    ```bash
    mkdir -p .cursor && touch .cursor/mcp.json
    ```
 
-4. Add the following configuration to `.cursor/mcp.json` (replace with your Frontegg credentials):
+2. Add the following configuration to `.cursor/mcp.json` (replace with your Frontegg credentials):
    ```json
    {
        "mcpServers": {
@@ -49,7 +66,7 @@ This repository demonstrates how to set up and use the Frontegg Management Contr
      }
    ```
 
-5. Save the file.
+3. Save the file.
 
 ## Enabling MCP in Cursor
 
@@ -57,7 +74,65 @@ This repository demonstrates how to set up and use the Frontegg Management Contr
 
 2. Close all Cursor windows completely and re-open them.
 
-3. Open Cursor AI chat (`⌥ + ⌘ + B`), select the Frontegg agent from the dropdown, and ask it a question like "get frontegg roles on my account".
+3. Open Cursor AI chat (`⌥ + ⌘ + B`), select the Frontegg agent from the dropdown.
+
+## Usage
+
+Once you've set up the integration, you can query your Frontegg account directly from Cursor AI. Here are some examples:
+
+> **Note:** You can find more useful prompt examples in the [sample_prompts.txt](sample_prompts.txt) file included in this repository.
+
+```bash
+# 1. Get all applications in your Frontegg account
+> get roles
+
+# Response:
+[
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "vendorId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "key": "ReadOnly",
+    "name": "Read Only",
+    "isDefault": false,
+    "firstUserRole": false,
+    "createdAt": "2025-05-19T19:46:03.000Z",
+    "updatedAt": "2025-05-19T19:46:03.000Z",
+    "permissions": [
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "level": 0
+  },
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "vendorId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "key": "Admin",
+    "name": "Admin",
+    "isDefault": true,
+    "firstUserRole": false,
+    "createdAt": "2025-05-19T19:46:03.000Z",
+    "updatedAt": "2025-05-19T19:46:03.000Z",
+    "permissions": [
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "level": 0
+  }
+]
+
+# 2. Create a new role
+Create role named "MyRole" with description "Custom role with Frontegg MCP"
+
+# Response:
+I've successfully created a new role:
+Name: MyRole
+Key: MyRole
+Description: Custom role with Frontegg MCP
+Level: 1
+The role has been added to your Frontegg account. You can now assign permissions to this role or assign it to users as needed.
+
+```
 
 ## Features
 
