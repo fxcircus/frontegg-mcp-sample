@@ -1,38 +1,46 @@
+# One prompt at a time.
+
 # Roles Management
-Get roles  
-Create role named "MyRole" with description "Custom role with Frontegg MCP"
-Delete role with ID "role_12345"  
-Update role with ID "role_12345" to have name "SuperAdmin" and description "All permissions"  
-Set permissions ["read_users","update_users"] to role "Manager"  
+==================
+Get the roles on my Frontegg account  
+Create role named "MyRole" with description "Custom role with Frontegg MCP", and role level 5
+Update role with name "MyRole" to have name "SuperAdmin" and description "All permissions"  
+Set permissions ["read_users","update_users"] to role "MyRole"  
+Delete the role with name "MyRole"
+
 
 # Permissions Management
-Get permissions  
-Create permission named "export_data" with description "Allows exporting reports"  
-Delete permission with ID "perm_67890"  
-Update permission with ID "perm_67890" to have description "Exports financial reports"  
-Set permission classification "Sensitive" for permission "perm_67890"  
+========================
+Get permissions on my Frontegg account  
+Create permission named "Export Data" with key "export_data", description "Allows exporting reports" 
+Assign the "Export Data" permission to the Read Only role
+Delete the "Export Data" permission
 Get permission categories  
 
+# Tenant Management
+===================
+Create tenant named "New Customer Tenant" with ID "tenant_new"  
+Delete tenant with ID "tenant_old"  
+Update tenant "tenant_new" to have name "Customer A Tenant"
+
 # User Management
+=================
 Get users  
-Invite user with email "user@example.com" to tenant "tenant_abc"  
+Invite user with email "user@example.com" to tenant with tenantId "tenant_new"  
 Delete user with ID "user_11111"  
 Update user with ID "user_22222" to have roles ["Admin","Editor"]  
 Get users for application "app_xyz"  
 Assign users ["user_33333","user_44444"] to application "app_xyz"  
 
 # Application Management
+==================
 Get applications  
 Get agent applications  
 Create agent application named "ReportingTool"  
 Update agent application "agent_app_55555" to have redirect URL "https://app.example.com/callback"  
 
-# Tenant Management
-Create tenant named "New Customer Tenant" with ID "tenant_new"  
-Delete tenant with ID "tenant_old"  
-Update tenant "tenant_new" to have name "Customer A Tenant"  
-
 # Token Management
+==================
 Create token for client credentials "cred_99999"  
 Get tokens  
 Delete token with ID "token_88888"  
@@ -42,6 +50,7 @@ Update client credentials "cred_99999" to have scopes ["read_apps","write_apps"]
 Delete client credentials "cred_99999"  
 
 # Vendor Integration
+====================
 Get vendor integrations  
 Create vendor integration named "Okta SSO" with type "OIDC"  
 Update vendor integration "vi_123" to set clientId "newClientId"  
@@ -50,3 +59,7 @@ Assign agents ["agent_1","agent_2"] to vendor integration "vi_456"
 Unassign agents ["agent_3"] from vendor integration "vi_456"  
 Get Frontegg integrations  
 Get Frontegg integration with ID "int_789"  
+
+# Complete architecture from image (use ACME_CORP_ARCHITECTURE.png)
+===================================================================
+Here’s ACME Corp’s architecture. Make it real.

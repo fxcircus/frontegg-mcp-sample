@@ -12,6 +12,8 @@ A demo showing how to wire up the [Frontegg MCP Server](https://github.com/front
 - [Configuration](#configuration)
 - [Enabling MCP in Cursor](#enabling-mcp-in-cursor)
 - [Usage](#usage)
+- [Advanced Examples](#advanced-examples)
+  - [Multi-Tenant Architecture](#multi-tenant-architecture)
 - [Features](#features)
   - [Available Tools](#available-tools)
     - [Roles Management](#roles-management)
@@ -131,8 +133,29 @@ Key: MyRole
 Description: Custom role with Frontegg MCP
 Level: 1
 The role has been added to your Frontegg account. You can now assign permissions to this role or assign it to users as needed.
+```
+
+## Advanced Examples
+
+### Multi-Tenant Architecture
+
+You can create complex tenant hierarchies with users and roles by simply describing the architecture or providing a diagram. For example, you can use the prompt:
 
 ```
+Here's ACME Corp's architecture. Make it real.
+```
+
+Along with a diagram like this:
+
+![ACME Corp Architecture](ACME_CORP_ARCHITECTURE.png)
+
+The Frontegg MCP will automatically:
+1. Create the parent tenant (ACME Corp)
+2. Create sub-tenants (Toon Tower and Desert HQ)
+3. Create any missing roles (Admin, User, Manager)
+4. Create and assign users to their respective tenants with appropriate roles
+
+This powerful feature allows you to quickly set up complex organizational structures with proper user permission hierarchies.
 
 ## Features
 
