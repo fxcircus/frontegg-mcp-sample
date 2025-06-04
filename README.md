@@ -147,7 +147,7 @@ Here's ACME Corp's architecture. Make it real.
 
 Along with a diagram like this:
 
-![ACME Corp Architecture](ACME_CORP_ARCHITECTURE.png)
+![ACME Corp Architecture](screenshots/ACME_CORP_ARCHITECTURE.png)
 
 The Frontegg MCP will automatically:
 1. Create the parent tenant (ACME Corp)
@@ -156,6 +156,20 @@ The Frontegg MCP will automatically:
 4. Create and assign users to their respective tenants with appropriate roles
 
 This powerful feature allows you to quickly set up complex organizational structures with proper user permission hierarchies.
+
+#### Example Results
+
+**In Cursor:**
+
+The MCP will process your request and show you the execution steps as it creates each component of your architecture:
+
+![Cursor Execution Result](screenshots/Result_example_cursor.png)
+
+**In the Frontegg Portal:**
+
+After execution, you'll see the fully implemented tenant hierarchy with all users and roles in your Frontegg admin portal:
+
+![Frontegg Result](screenshots/Result_example_frontegg.png)
 
 ## Features
 
