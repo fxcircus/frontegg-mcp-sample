@@ -169,7 +169,7 @@ The MCP will process your request and show you the execution steps as it creates
 
 After execution, you'll see the fully implemented tenant hierarchy with all users and roles in your Frontegg admin portal:
 
-![Frontegg Result](screenshots/Result_example_frontegg.png)
+![Frontegg Result](screenshots/Result_example_frontegg_portal.png)
 
 ## Features
 
